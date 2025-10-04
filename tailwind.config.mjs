@@ -7,16 +7,20 @@ export default {
   ],
   theme: {
     extend: {
-        colors:{
-            lightHover:'#fcf4ff',
-            drakHover: '#2a004a',
-            drakTheme: '#11001f',
-        },
-        fontFamily:{
-          sans: ['Outfit', 'sans-serif'],
-            outfit: ['Outfit', 'sans-serif'],
-            ovo: ['Ovo', 'serif'],
-        }
+      colors: {
+        lightHover: '#fcf4ff',
+        darkHover: '#2a004a',
+        darkTheme: '#11001f',
+      },
+      fontFamily: {
+        sans: ['Outfit', 'sans-serif'],
+        outfit: ['Outfit', 'sans-serif'],
+        ovo: ['Ovo', 'serif'],
+      },
+      boxShadow: {
+        'black': '4px 4px 0 #000',
+        'white': '4px 4px 0 #fff',
+      }
     },
   },
   plugins: [],
