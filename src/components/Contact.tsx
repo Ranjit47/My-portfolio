@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { motion } from "motion/react";
 
 export const Contact = () => {
-
-   const [result, setResult] = useState("");
+  const [result, setResult] = useState("");
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -16,7 +16,7 @@ export const Contact = () => {
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      body: formData
+      body: formData,
     });
 
     const data = await response.json();
@@ -33,17 +33,34 @@ export const Contact = () => {
   return (
     <section id="contact" className="py-24 px-4">
       <div className="max-w-2xl mx-auto">
-        <div className="space-y-8">
-          <div className="text-center space-y-4 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold  ">
+        <div className="space-y-8 appear-effect">
+          <div className="text-center space-y-4    ">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="text-4xl md:text-5xl font-bold  "
+            >
               Get In <span className="text-gradient">Touch</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Have a project in mind? Let's work together to create something amazing.
-            </p>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
+              className="text-lg text-muted-foreground"
+            >
+              Have a project in mind? Let's work together to create something
+              amazing.
+            </motion.p>
           </div>
 
-          <form onSubmit={onSubmit} className="space-y-6">
+          <motion.form
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            onSubmit={onSubmit}
+            className="space-y-6"
+          >
             <div className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border/50 card-glow space-y-6">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">
@@ -86,30 +103,50 @@ export const Contact = () => {
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                size="lg" 
+              <Button
+                type="submit"
+                size="lg"
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 glow-border transition-all duration-300"
               >
                 Send Message
               </Button>
               <p className="mt-4">{result}</p>
             </div>
-          </form>
+          </motion.form>
 
-          <div className="flex justify-center gap-6 text-muted-foreground">
-            <a href="https://github.com/Ranjit47" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.4 }}
+            className="flex justify-center gap-6 text-muted-foreground"
+          >
+            <a
+              href="https://github.com/Ranjit47"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
               GitHub
             </a>
             <span>•</span>
-            <a href="https://www.linkedin.com/in/ranjitrai47/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+            <a
+              href="https://www.linkedin.com/in/ranjitrai47/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
               LinkedIn
             </a>
             <span>•</span>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
               Twitter
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
