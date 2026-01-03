@@ -76,8 +76,8 @@ export const Hero = () => {
             className="border-primary/50 hover:border-primary hover:bg-primary/80 transition-all duration-300"
           >
             <a
-              href="/Ranjit_Rai_Resume.pdf"
-              download="Ranjit_Rai_Resume.pdf"
+              href="/Resume_ranjit(3).pdf"
+              download="Resume_ranjit.pdf"
               className="flex items-center gap-2"
             >
               <svg
